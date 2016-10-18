@@ -1,0 +1,18 @@
+CREATE SCHEMA `marvelArte` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci ;
+
+CREATE TABLE `marvelArte`.`cuadros` (
+  `Codigo` VARCHAR(7) NOT NULL,
+  `Titulo` VARCHAR(45) NULL,
+  `Precio` INT NULL,
+  `Artista` VARCHAR(45) NULL,
+  `Fecha Creacion` VARCHAR(10) NULL,
+  `Fecha Stock` VARCHAR(10) NULL,
+  `Dimensiones` VARCHAR(5) NULL,
+  `Tecnica` VARCHAR(10) NULL,
+  `Categoria` VARCHAR(45) NULL,
+  `Imagen` VARCHAR(200) NULL,
+  `Marco` VARCHAR(2) NULL,
+  `Material Marco` VARCHAR(10) NULL,
+  `Color Marco` VARCHAR(10) NULL,
+  `Estilo Marco` VARCHAR(10) NULL,
+  PRIMARY KEY (`Codigo`));

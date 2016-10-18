@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!--De esta manera la pestaña nos va guiando en que modulo estamos-->
+    <title>MARVEL|<?php if($_GET['module']){ echo $_GET['module'];}else{ echo "homepage";} ?> </title>
+
+
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+
+    <!--Codigo para inserta FAVICON-->
+    <link rel="shortcut icon" href="view/img/Icon_MarvelArte.ico">
+    <!--Fin FAVICON-->
+
+
+    <title>MARVEL ART</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="view/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="view/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="view/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+
+
+    <!--Links Create_Products-->
+    <link rel="stylesheet" type="text/css" href="modules/products/view/css/view.css" media="all">
+    <script type="text/javascript" src="modules/products/view/js/view.js"></script>
+    <!--<script type="text/javascript" src="modules/products/view/calendar.js"></script>-->
+    <!--Fin Create_Products-->
+
+    <!--Scripts DatePicker-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   <!--<script src="https://jquery.ui.datepicker-es.js"></script>-->
+   <script src="view/plugins/jquery.prettyPhoto.js"></script>
+
+    <script src="view/js/datepicker-es.js"></script>
+
+
+
+    <script>
+      $( function() {
+        $.datepicker.setDefaults($.datepicker.regional["es"]);
+        $("#fecha_creacion").datepicker();
+        $("#fecha_stock").datepicker();
+        });
+  </script>
+  <!--FIN DatePicker-->
+</head>
