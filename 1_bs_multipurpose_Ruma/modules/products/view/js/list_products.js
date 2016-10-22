@@ -106,6 +106,18 @@ function list_products(data) {
     categoria_cuadro.innerHTML = "categoria_cuadro = ";
     categoria_cuadro.innerHTML += data.user.categoria_cuadro;
 
+    var pais = document.createElement("div");
+    pais.innerHTML = "pais = ";
+    pais.innerHTML += data.user.pais;
+
+    var provincia = document.createElement("div");
+    provincia.innerHTML = "pais = ";
+    provincia.innerHTML += data.user.provincia;
+
+    var poblacion = document.createElement("div");
+    poblacion.innerHTML = "pais = ";
+    poblacion.innerHTML += data.user.poblacion;
+
     var marco_disponible = document.createElement("div");
     marco_disponible.innerHTML = "marco_disponible = ";
     marco_disponible.innerHTML += data.user.marco_disponible;
@@ -144,6 +156,9 @@ function list_products(data) {
     parrafo.appendChild(dimension_cuadro);
     parrafo.appendChild(tecnica_cuadro);
     parrafo.appendChild(categoria_cuadro);
+    parrafo.appendChild(pais);
+    parrafo.appendChild(provincia);
+    parrafo.appendChild(poblacion);
     parrafo.appendChild(marco_disponible);
     parrafo.appendChild(material_marco);
     parrafo.appendChild(color_marco);

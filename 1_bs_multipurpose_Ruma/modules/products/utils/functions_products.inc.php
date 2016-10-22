@@ -1,7 +1,7 @@
 <?php
 //Función para Validar Productos con PHP
 function validate_products($value) {
- 
+
     $error = array();
     $valido = true;
     $filtro = array(
@@ -24,29 +24,32 @@ function validate_products($value) {
         'fecha_stock' => array(
             'filter' => FILTER_VALIDATE_REGEXP,
             'options' => array('regexp' => '/^(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d$/')
-        
+
         ),
     );
 
     $resultado = filter_var_array($value, $filtro);//
     //return $resultado;
- 
-    
+
+
     //Valores no filtrados con Expresiones Regulares
     $resultado['nombre_artista'] = $value['nombre_artista'];
     $resultado['dimension_cuadro'] = $value['dimension_cuadro'];
-    $resultado['tecnica_cuadro'] = $value['tecnica_cuadro']; 
+    $resultado['tecnica_cuadro'] = $value['tecnica_cuadro'];
     $resultado['categoria_cuadro'] = $value['categoria_cuadro'];
+    $resultado['pais'] = $value['pais'];
+    $resultado['provincia'] = $value['provincia'];
+    $resultado['poblacion'] = $value['poblacion'];
     $resultado['marco_disponible'] = $value['marco_disponible'];
     $resultado['material_marco'] = $value['material_marco'];
     $resultado['color_marco'] = $value['color_marco'];
     $resultado['estilo_marco'] = $value['estilo_marco'];
-    
+
 //-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/--/-/
 
 
     if ($resultado['fecha_stock']) {
-       
+
         $dates = validar_fecha_stock($value['fecha_stock']);
 
         if (!$dates) {
@@ -54,9 +57,9 @@ function validate_products($value) {
             $valido = false;
         }
     }
-    
+
     if ($resultado['fecha_creacion'] && $resultado['fecha_stock']) {//Comparamos FECHA CREACION sea <= FECHA STOCK
-        
+
         $dates = valida_dates($value['fecha_creacion'], $value['fecha_stock']);
 
         if (!$dates) {
@@ -69,17 +72,17 @@ function validate_products($value) {
         $error['nombre_artista'] = "Selecciona Artista ";
         $valido = false;
     }
-    
+
     if ($value['dimension_cuadro'] === "") {
         $error['dimension_cuadro'] = "Selecciona solo una opcion";
         $valido =  false;
     }
-    
+
     if ($value['tecnica_cuadro'] === "") {
         $error['tecnica_cuadro'] = "Selecciona al menos una opción";
         $valido =  false;
     }
-    
+
     if ($value['categoria_cuadro'] === 'selecciona') {
         $error['categoria_cuadro'] = "Selecciona al menos una opción";
         $valido = false;
@@ -93,18 +96,18 @@ function validate_products($value) {
         $error['color_marco'] = "Selecciona al menos una opción";
         $valido = false;
     }
-    
+
     if ($value['material_marco'] === 'selecciona') {
         $error['material_marco'] = "Selecciona al menos una opción";
         $valido = false;
     }
-    
+
     if ($value['estilo_marco'] === 'selecciona') {
         $error['estilo_marco'] = "Selecciona al menos una opción";
         $valido = false;
     }
 
-  
+
 */
     if ($resultado != null && $resultado) {
 
@@ -112,7 +115,7 @@ function validate_products($value) {
             $error['cod_cuadro'] = 'Codigo debe tener de 3 letras y 4 números';
             $valido = false;
         }
-        
+
 
         if (!$resultado['nombre_cuadro']) {
             $error['nombre_cuadro'] = 'Nombre del cuadro debe tener de 2 a 30 letras';
@@ -158,13 +161,13 @@ function valida_dates($enter_date,$obsolescense_date) {
     $day2=substr($obsolescense_date, 0,2);
     $month2=substr($obsolescense_date, 3,2);
     $year2=substr($obsolescense_date, 6,4);
-    
+
     if ($enter_date<=$obsolescense_date) {
         return true;
     }
 
     return false;
-}    
+}
 
 
 //Funcion en la que FECHA DE STOCK DEBE SER IGUAL A LA DEL SISTEMA
@@ -172,11 +175,11 @@ function validar_fecha_stock($fechaStock) {
     //$fecha = date('d-m-Y');
     $fecha = date("d/m/Y");
     //$fecha = strftime($fecha);
-   
-    
+
+
     if($fecha == $fechaStock){
         return true;
     }
-    
+
     return false;
 }

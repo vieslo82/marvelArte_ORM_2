@@ -1,8 +1,8 @@
 <?php
     session_start();
-    include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM/1_bs_multipurpose_Ruma/modules/products/utils/functions_products.inc.php");
-    include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM/1_bs_multipurpose_Ruma/utils/upload.php");
-    include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM/1_bs_multipurpose_Ruma/utils/common.inc.php");
+    include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/utils/functions_products.inc.php");
+    include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/utils/upload.php");
+    include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/utils/common.inc.php");
 
 
     ///////////////////////////////////
@@ -46,6 +46,9 @@
                 'dimension_cuadro' => $result['datos']['dimension_cuadro'],
                 'tecnica_cuadro' => $result['datos']['tecnica_cuadro'],
                 'categoria_cuadro' => strtoupper($result['datos']['categoria_cuadro']),
+                'pais' => strtoupper($result['datos']['pais']),
+                'provincia' => strtoupper($result['datos']['provincia']),
+                'poblacion' => strtoupper($result['datos']['poblacion']),
                 'marco_disponible' => strtoupper($result['datos']['marco_disponible']),
                 'material_marco' => strtoupper($result['datos']['material_marco']),
                 'color_marco' => strtoupper($result['datos']['color_marco']),
@@ -56,7 +59,7 @@
 
           /////////////////insert into BD////////////////////////
         $arrValue = false;
-        $path_model = $_SERVER['DOCUMENT_ROOT'] . '/php/marvelArte_ORM/1_bs_multipurpose_Ruma/modules/products/model/model/';
+        $path_model = $_SERVER['DOCUMENT_ROOT'] . '/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model/';
         $arrValue = loadModel($path_model, "product_model", "create_product", $arrArgument);
         //echo json_encode($arrValue);
         //die();
@@ -148,3 +151,66 @@
             exit;
         }
     }
+
+    //////////////////////////////////////////////////////////////////////
+
+    /////////////////////////////////////////////////// load_pais
+if(  (isset($_GET["load_pais"])) && ($_GET["load_pais"] == true)  ){
+
+  $json = array();
+
+    $url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
+
+
+
+  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model';
+  $json = loadModel($path_model, "product_model", "obtain_paises", $url);
+
+  if($json){
+    echo $json;
+    exit;
+  }else{
+    $json = "error";
+    echo $json;
+    exit;
+  }
+}
+
+/////////////////////////////////////////////////// load_provincias
+if(  (isset($_GET["load_provincias"])) && ($_GET["load_provincias"] == true)  ){
+  $jsondata = array();
+      $json = array();
+
+  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model';
+
+  $json = loadModel($path_model, "product_model", "obtain_provincias");
+
+  if($json){
+    $jsondata["provincias"] = $json;
+    echo json_encode($jsondata);
+    exit;
+  }else{
+    $jsondata["provincias"] = "error";
+    echo json_encode($jsondata);
+    exit;
+  }
+}
+
+/////////////////////////////////////////////////// load_poblaciones
+if(  isset($_POST['idPoblac']) ){
+    $jsondata = array();
+      $json = array();
+
+  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model';
+  $json = loadModel($path_model, "product_model", "obtain_poblaciones", $_POST['idPoblac']);
+
+  if($json){
+    $jsondata["poblaciones"] = $json;
+    echo json_encode($jsondata);
+    exit;
+  }else{
+    $jsondata["poblaciones"] = "error";
+    echo json_encode($jsondata);
+    exit;
+  }
+}

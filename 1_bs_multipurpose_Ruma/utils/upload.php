@@ -69,7 +69,7 @@
 
 
         ////////////////////////////////////////////////////////////////////////////
-        $upfile = $_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM/1_bs_multipurpose_Ruma/media/'.$_FILES['file']['name'];
+        $upfile = $_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/media/'.$_FILES['file']['name'];
         if (is_uploaded_file($_FILES['file']['tmp_name'])){
             if (is_file($_FILES['file']['tmp_name'])) {
                 $idUnico = rand();
@@ -77,7 +77,7 @@
                 $_SESSION['nombreFichero'] = $nombreFichero;
                 $copiarFichero = true;
                 // I use absolute route to move_uploaded_file because this happens when i run ajax
-                $upfile = $_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM/1_bs_multipurpose_Ruma/media/'.$nombreFichero;
+                $upfile = $_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/media/'.$nombreFichero;
             }else{
                     $error .=   "Invalid File...";
             }
@@ -91,11 +91,11 @@
                     return $return=array('resultado'=>false,'error'=>$error,'datos'=>"");
                 }
                 //We need edit $upfile because now i don't need absolute route.
-                $upfile ='/php/marvelArte_ORM/1_bs_multipurpose_Ruma/media/'.$nombreFichero;
+                $upfile ='/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/media/'.$nombreFichero;
                 return $return=array('resultado'=>true , 'error'=>$error,'datos'=>$upfile);
             }
             if($_FILES['file']['error'] !== 0) { //Assignarem a l'us default-avatar
-                $upfile = '/php/marvelArte_ORM/1_bs_multipurpose_Ruma/media/default-avatar.jpg';
+                $upfile = '/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/media/default-avatar.jpg';
                 return $return=array('resultado'=>true,'error'=>$error,'datos'=>$upfile);
             }
         }else{
@@ -106,8 +106,8 @@
     function remove_files(){
     //return json_encode("ESTOY EN UPD.PHP");
     $name = $_POST["filename"];
-    	if(file_exists($_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM/1_bs_multipurpose_Ruma/media/'.$name)){
-    		unlink($_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM/1_bs_multipurpose_Ruma/media/'.$name);
+    	if(file_exists($_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/media/'.$name)){
+    		unlink($_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/media/'.$name);
     		return true;
     	}else{
     		return false;

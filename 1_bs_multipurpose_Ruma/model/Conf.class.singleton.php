@@ -1,5 +1,5 @@
 <?php
-	$path=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM/1_bs_multipurpose_Ruma/';
+	$path=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/';
     define('SITE_ROOT', $path);
     define('MODEL_PATH',SITE_ROOT.'model/');
 
