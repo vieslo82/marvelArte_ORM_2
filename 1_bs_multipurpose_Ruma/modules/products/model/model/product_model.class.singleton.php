@@ -1,7 +1,4 @@
 <?php
-
-$path = $_SERVER['DOCUMENT_ROOT'] . '/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/';
-define('SITE_ROOT', $path);
 require(SITE_ROOT . "modules/products/model/BLL/product_bll.class.singleton.php");
 
 class product_model {
@@ -24,16 +21,14 @@ class product_model {
     }
 
     public function obtain_paises($url) {
-            return $this->bll->obtain_paises_BLL($url);
-        }
+        return $this->bll->obtain_paises_BLL($url);
+    }
 
     public function obtain_provincias() {
-            return $this->bll->obtain_provincias_BLL();
-        }
+        return $this->bll->obtain_provincias_BLL();
+    }
 
     public function obtain_poblaciones($arrArgument) {
-            return $this->bll->obtain_poblaciones_BLL($arrArgument);
-        }
-
-
+        return $this->bll->obtain_poblaciones_BLL($arrArgument);
+    }
 }

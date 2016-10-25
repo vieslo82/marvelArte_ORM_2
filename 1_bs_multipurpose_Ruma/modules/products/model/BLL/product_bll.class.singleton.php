@@ -1,8 +1,5 @@
 <?php
-
 $path = $_SERVER['DOCUMENT_ROOT'] . '/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/';
-//define('SITE_ROOT', $path);
-define('MODEL_PATH', SITE_ROOT . 'model/');
 
 require (MODEL_PATH . "Db.class.singleton.php");
 require(SITE_ROOT . "modules/products/model/DAO/product_dao.class.singleton.php");
@@ -29,8 +26,8 @@ class product_bll {
     }
 
     public function obtain_paises_BLL($url) {
-            return $this->dao->obtain_paises_DAO($url);
-        }
+        return $this->dao->obtain_paises_DAO($url);
+    }
 
     public function obtain_provincias_BLL() {
             return $this->dao->obtain_provincias_DAO();

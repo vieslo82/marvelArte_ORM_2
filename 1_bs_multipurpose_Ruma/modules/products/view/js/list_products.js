@@ -111,11 +111,11 @@ function list_products(data) {
     pais.innerHTML += data.user.pais;
 
     var provincia = document.createElement("div");
-    provincia.innerHTML = "pais = ";
+    provincia.innerHTML = "provincia = ";
     provincia.innerHTML += data.user.provincia;
 
     var poblacion = document.createElement("div");
-    poblacion.innerHTML = "pais = ";
+    poblacion.innerHTML = "poblacion = ";
     poblacion.innerHTML += data.user.poblacion;
 
     var marco_disponible = document.createElement("div");

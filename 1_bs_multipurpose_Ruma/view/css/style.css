@@ -6,7 +6,7 @@
 
     100% To use For Personal And Commercial Use.
     IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-   
+
     ========================================================  */
 
 /* =============================================================
@@ -14,7 +14,7 @@
  ============================================================ */
 body {
     font-family: 'Open Sans', sans-serif;
-   
+
 }
 .pad-top {
     padding-top:60px;
@@ -198,7 +198,7 @@ border-radius: 0px;
   background: #fff;
   padding: 10px;
   border:1px solid #E8EAEE;
-  
+
 }
 .portfolio-item img {
   width: 100%;
@@ -269,3 +269,78 @@ border: 1px solid #e1e1e1;
         color:#fff;
 }
 
+
+
+/* LISTAR Y DETALLES PRODUCTS STYLE*/
+
+.prodImg {
+    display:block;
+    width: 100%;
+    height: 70%;
+}
+
+#prod {
+    display:inline-block;
+    margin: 8px;
+    margin-bottom: 5px;
+    width: 350px;
+    height: 350px;
+    text-align: left;
+}
+
+#prod p {
+    display: inline-block;
+    font-weight: bold;
+    color:black;
+}
+
+#p2{
+    float:right;
+    font-size:  18pt;
+    margin-right: 30px;
+    color:red;
+}
+
+
+#prod:hover {
+    border:1px solid gray;
+}
+
+.prodImg {
+    display:block;
+    width: 100%;
+    height: 70%;
+}
+
+#details {
+    display: table;
+    width: 70%;
+    border:1px solid black;
+    border-radius: 9px;
+    background-color: #f5f1e6;
+}
+
+
+#details img {
+    display: table-cell;
+    width: 350px;
+    height: 350px;
+}
+#container {
+    display: table-cell;
+    width: 350px;
+    height: 350px;
+    vertical-align: top;
+}
+
+
+/**BREADCRUMB*/
+#list_prod ol li {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+#details_prod ol li {
+    font-size: 30pt;
+    font-weight: bold;
+}

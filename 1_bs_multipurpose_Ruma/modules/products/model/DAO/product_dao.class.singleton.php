@@ -64,21 +64,21 @@ class productDAO {
     }
 
     public function obtain_paises_DAO($url) {
-           $ch = curl_init();
-           curl_setopt ($ch, CURLOPT_URL, $url);
-           curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-           curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-           $file_contents = curl_exec($ch);
-           curl_close($ch);
-
-           return ($file_contents) ? $file_contents : FALSE;
-       }
+         $ch = curl_init();
+         curl_setopt ($ch, CURLOPT_URL, $url);
+         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+         $file_contents = curl_exec($ch);
+         curl_close($ch);
+         
+         return ($file_contents) ? $file_contents : FALSE;
+     }
 
        public function obtain_provincias_DAO() {
            $json = array();
        $tmp = array();
 
-       $provincias = simplexml_load_file("../resources/provinciasypoblaciones.xml");
+       $provincias = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/resources/provinciasypoblaciones.xml');
        $result = $provincias->xpath("/lista/provincia/nombre | /lista/provincia/@id");
        for ($i=0; $i<count($result); $i+=2) {
          $e=$i+1;
@@ -97,7 +97,7 @@ class productDAO {
        $tmp = array();
 
            $filter = (string)$arrArgument;
-         $xml = simplexml_load_file('../resources/provinciasypoblaciones.xml');
+         $xml = simplexml_load_file($_SERVER['DOCUMENT_ROOT'] . '/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/resources/provinciasypoblaciones.xml');
        $result = $xml->xpath("/lista/provincia[@id='$filter']/localidades");
 
          for ($i=0; $i<count($result[0]); $i++) {

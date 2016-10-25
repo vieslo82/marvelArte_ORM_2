@@ -3,6 +3,7 @@
     include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/utils/functions_products.inc.php");
     include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/utils/upload.php");
     include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/utils/common.inc.php");
+    include ($_SERVER['DOCUMENT_ROOT'] . "/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/model/Conf.class.singleton.php");
 
 
     ///////////////////////////////////
@@ -157,13 +158,14 @@
     /////////////////////////////////////////////////// load_pais
 if(  (isset($_GET["load_pais"])) && ($_GET["load_pais"] == true)  ){
 
+//echo "CARGANDO PAISES";
+
   $json = array();
+  $url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
 
-    $url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
+//echo $_SERVER['DOCUMENT_ROOT'];
+  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model/';
 
-
-
-  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model';
   $json = loadModel($path_model, "product_model", "obtain_paises", $url);
 
   if($json){
@@ -181,7 +183,7 @@ if(  (isset($_GET["load_provincias"])) && ($_GET["load_provincias"] == true)  ){
   $jsondata = array();
       $json = array();
 
-  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model';
+  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model/';
 
   $json = loadModel($path_model, "product_model", "obtain_provincias");
 
@@ -201,7 +203,7 @@ if(  isset($_POST['idPoblac']) ){
     $jsondata = array();
       $json = array();
 
-  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model';
+  $path_model=$_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_2/1_bs_multipurpose_Ruma/modules/products/model/model/';
   $json = loadModel($path_model, "product_model", "obtain_poblaciones", $_POST['idPoblac']);
 
   if($json){
